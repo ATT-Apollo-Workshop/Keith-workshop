@@ -13,10 +13,6 @@ endpoint: ${ENDPOINT}
 schema:
   source: uplink
 
-# Operations source - use GraphOS-managed persisted queries
-operations:
-  source: uplink
-
 # Transport configuration for HTTP
 transport:
   type: streamable_http
@@ -48,11 +44,8 @@ introspection:
     minify: true
   validate:
     enabled: true
-
-# Security overrides
-overrides:
-  mutation_mode: "explicit"  # Only allow explicitly defined mutations
-  enable_explorer: true
+  execute:
+    enabled: true
 
 # Logging configuration
 logging:

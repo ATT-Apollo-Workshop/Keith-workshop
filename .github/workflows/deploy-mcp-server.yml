@@ -27,6 +27,10 @@ jobs:
       - name: Setup Google Cloud SDK
         uses: 'google-github-actions/setup-gcloud@v2'
 
+      - name: Build and Push Container
+        run: |-
+          gcloud builds submit mcpServer/ --config mcpServer/cloudbuild.yaml
+
       - name: Deploy Apollo MCP Server to Cloud Run
         run: |
           gcloud run deploy ${{ vars.ACTOR }}-mcp-server \
